@@ -1,0 +1,329 @@
+
+body {
+   margin: 0;
+   padding: 0;
+   background: radial-gradient(#333, #111);
+   color: white;
+   font-family: SpaceColony-Bold;
+   min-height: 100vh;
+   min-width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow-y: scroll; /* убираем скролл */
+   overflow-x: hidden; /* скрываем скролл */
+}
+
+@font-face {
+   font-family: 'SpaceColony-Bold';
+   src: url('./SpaceColony-Bold.woff2') format('woff2'),
+        url('SpaceColony-Bold.ttf') format('woff'),
+        url('SpaceColony-Bold\ \(1\).otf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+}
+canvas {
+  display: block;
+}
+
+.container {
+   width: 100%;
+
+   text-align: center;
+
+   position: relative;
+
+   pointer-events: none; /* Блокує взаємодію з контейнером, дозволяючи курсору реагувати на фон */
+}
+
+.container * {
+   pointer-events: auto; /* Повертає взаємодію для всіх елементів всередині контейнера */
+}
+
+.header {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;
+   pointer-events: none;
+}
+
+.main-logo {
+   width: 150px;
+   height: auto;
+   margin-bottom: 0;
+}
+
+.title {
+   width: 18%;
+   height: auto;
+   margin: 5px;
+   font-family: SpaceColony-Bold;
+   font-size: 32px;
+}
+
+/* Единые стили для слогана */
+.slogan {
+   display: flex;
+   justify-content: center;
+   gap: 15px;
+   font-size: 80px;
+   font-weight: 900;
+   text-transform: uppercase;
+   font-family: 'Anton', sans-serif;
+   letter-spacing: 1px;
+   margin: 0;
+   margin-bottom: 60px;
+   pointer-events: none;
+}
+
+.slogan span {
+   opacity: 0;
+   animation: fade-in-out 4s infinite;
+}
+
+/* Налаштування затримки для кожного слова */
+.slogan span:nth-child(1) {
+   animation-delay: 0s;
+}
+.slogan span:nth-child(2) {
+   animation-delay: 1s;
+}
+.slogan span:nth-child(3) {
+   animation-delay: 2s;
+}
+.slogan span:nth-child(4) {
+   animation-delay: 3s;
+}
+
+@keyframes fade-in-out {
+   0%,
+   100% {
+      opacity: 0;
+   }
+   50% {
+      opacity: 1;
+   }
+}
+
+.progress-bar {
+   background-color: #444;
+   width: 80%;
+   max-width: 800px;
+   height: 50px;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   position: relative;
+
+}
+
+.progress-bar:hover {
+   background-color: #555;
+}
+
+.progress-bar::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: -100%;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+   );
+   transition: 0.5s;
+}
+
+.progress-bar:hover::before {
+   left: 100%;
+   transition: 0.5s;
+}
+
+.progress-text {
+   color: white;
+   font-size: 9px;
+   letter-spacing: 2px;
+   font-weight: bold;
+   transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+   .progress-text {
+      font-size: 11px;
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .progress-text {
+      font-size: 9px;
+   }
+}
+
+@media screen and (max-width: 590px) {
+   .progress-text {
+      font-size: 7px;
+   }
+}
+@media screen and (max-width: 480px) {
+   .progress-text {
+      font-size: 5px;
+   }
+}
+@media screen and (min-width: 1025px) {
+   .progress-text {
+      font-size: 16px;
+   }
+}
+
+.progress-bar:hover .progress-text {
+   letter-spacing: 3px;
+}
+
+.icons {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 15px;
+   margin-top: 40px;
+}
+
+.icons img {
+   width: 75px;
+   height: 75px;
+   transition: transform 0.2s;
+}
+
+.icons img:hover {
+   transform: scale(1.1);
+}
+
+.icons a {
+   text-decoration: none;
+   display: inline-block;
+   margin: 0 10px;
+}
+
+.icons img:hover {
+   transform: scale(1.2);
+}
+
+@font-face {
+   font-family: 'GoodTimingBD'; /* Назва шрифту */
+   src: url('./GoodTimingBD.ttf') format('truetype'); /* Шлях до файлу */
+   font-weight: normal; /* За потреби можна додати інші варіанти */
+   font-style: normal;
+}
+h1 {
+   font-family: 'GoodTimingBD', sans-serif;
+}
+
+/* Добавляем медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+   .main-logo {
+      width: 100px;
+   }
+
+   .title {
+      width: 100%;
+   }
+
+   .slogan {
+      font-size: 40px;
+      gap: 10px;
+      margin-bottom: 30px;
+   }
+
+   .progress-bar {
+      width: 90%;
+      height: 40px;
+   }
+
+   .icons {
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap; /* позволяет иконкам переноситься на новую строку */
+   }
+
+   .icons img {
+      width: 39px;
+      height: 39px;
+   }
+
+}
+
+/* Добавляем медиа-запрос для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+   .container {
+      padding: 10px;
+   }
+
+   .main-logo {
+      width: 80px;
+   }
+
+   .title {
+      width: 50%;
+   }
+
+   .slogan {
+      font-size: 32px;
+      gap: 8px;
+      margin-bottom: 20px;
+   }
+
+   .progress-bar {
+      height: 35px;
+   }
+
+   .icons {
+      gap: 10px;
+   }
+
+   .icons img {
+      width: 33px;
+      height: 33px;
+   }
+}
+
+canvas {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1; /* Задаємо канвасу негативний z-index, щоб він був під іншими елементами */
+ }
+
+ .container {
+   position: relative;
+   z-index: 1; /* Всі елементи всередині container будуть поверх canvas */
+ }
+
+
+ body {
+   background: #222;
+   background: radial-gradient(#333, #111);
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   color: #fff;
+   font: 100%/1.5 sans-serif;
+
+ }
+ 

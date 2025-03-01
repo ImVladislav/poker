@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>$CUPP</title>
+   <link rel="stylesheet" href="styles.css" />
+   <!-- Підключення CSS -->
+   <!-- <link rel="icon" href="logo.png" type="image/png" /> -->
+   <!-- Додавання фавіконки -->
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+   
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+   <div class="container">
+      <div class="header">
+         <!-- <img src="ico7.png" alt="Logo" class="main-logo" /> -->
+         <!-- <img src="logo_1.png" alt="Ignite" class="title" /> -->
+         <p class="title">$CUPP</p>
+         <p class="slogan">
+            <span>PLAY</span>
+            <span>SMART,</span>
+            <span>WIN</span>
+            <span>BIG</span>
+         </p>
+         
+      </div>
+      <div class="icons">
+         <a href="https://www.dextools.io/app/en/solana/pair-explorer/xxxxxxxxx
+            " target="_blank">
+               <img src="ico1.png" alt="Icon 1" />
+            </a>
+            <a href="https://dexscreener.com/solana/xxxxxxxxx" target="_blank">
+               <img src="ico2.png" alt="Icon 2" />
+            </a>
+         <!-- <a href="https://raydium.io/swap/?inputMint=sol&outputMint=xxxxxxxxx" target="_blank">
+               <img src="ico6.png" alt="Icon 3" />
+            </a> -->
+         <a href="https://t.me/BroccoliFartSol" target="_blank">
+            <img src="ico3.png" alt="Icon 4" />
+         </a>
+         <a href="https://x.com/BroccoliFartSol" , target="_blank">
+            <img src="ico4.png" alt="Icon 5" />
+         </a>
+      </div>
+
+      <div id="app"></div>
+
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js'></script>
+    
+      <script type="module">
+        import CodePenVueComponent from "./script.js";
+        new Vue(CodePenVueComponent).$mount('#app');
+      </script>
+
+
+      <div class="progress-bar">
+         <div class="progress-text" id="progressText">
+            XXXXXXXXX
+         </div>
+      </div>
+
+
+
+
+   </div>
+   <!-- <canvas id="canvas"></canvas> -->
+   <script>
+      document
+         .getElementById('progressText')
+         .addEventListener('click', function () {
+            const textToCopy = this.textContent;
+            navigator.clipboard
+               .writeText(textToCopy)
+               .then(() => {
+                  alert('Text copied to clipboard!');
+               })
+               .catch((err) => {
+                  console.error('Failed to copy text: ', err);
+               });
+         });
+   </script>
+   <script src="index.js"></script>
+</body>
+
+</html>
