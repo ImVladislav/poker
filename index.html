@@ -7,7 +7,7 @@
    <title>$WINCUP</title>
    <link rel="stylesheet" href="styles.css" />
    <!-- Підключення CSS -->
-   <!-- <link rel="icon" href="logo.png" type="image/png" /> -->
+   <link rel="icon" href="1.png" type="image/png" />
    <!-- Додавання фавіконки -->
    <link rel="preconnect" href="https://fonts.googleapis.com" />
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -126,19 +126,20 @@
    </div>
    <!-- <canvas id="canvas"></canvas> -->
    <script>
-      document
-         .getElementById('progressText')
-         .addEventListener('click', function () {
-            const textToCopy = this.textContent;
-            navigator.clipboard
-               .writeText(textToCopy)
-               .then(() => {
-                  alert('Text copied to clipboard!');
-               })
-               .catch((err) => {
-                  console.error('Failed to copy text: ', err);
-               });
-         });
+document.getElementById('progressText').addEventListener('click', function () {
+    const textToCopy = this.textContent;
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            this.textContent = "Contract copied!"; // Зміна тексту
+
+            setTimeout(() => {
+                this.textContent = textToCopy; // Повернення початкового тексту через 3 сек
+            }, 3000);
+        })
+        .catch((err) => {
+            console.error('Failed to copy text: ', err);
+        });
+});
    </script>
    <script src="index.js"></script>
 </body>
