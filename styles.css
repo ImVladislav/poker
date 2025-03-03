@@ -30,7 +30,7 @@ body, html {
    /* justify-content: center; */
    align-items: center;
    text-align: center;
-   padding: 20px;
+   /* padding: 20px; */
 }
 
 .hero::before {
@@ -135,7 +135,7 @@ body, html {
    transform: translateX(-50%); /* Центрування по горизонталі */
    width: 80%;
    max-width: 800px;
-   background-color: #444;
+   background-color: #222;
    height: 50px;
    display: flex;
    align-items: center;
@@ -180,12 +180,77 @@ body, html {
 }
 .footer {
    width: 100%;
-   min-height: 100vh;
-   background-size: cover;
-   background-position: center;
+   min-height: 50vh;
+   height: auto;
+   background-size: cover; /* Заповнює весь блок */
+   background-position: top center; /* Вирівнює картинку */
    background-repeat: no-repeat;
    display: flex;
    align-items: center;
    justify-content: center;
    padding: 20px;
+}
+
+/* Додатковий медіа-запит для широких екранів */
+@media (min-width: 900px) {
+   .footer {
+      min-height: 70vh; /* Збільшуємо висоту для широких екранів */
+   }
+}
+@media (min-width: 1200px) {
+   .footer {
+      min-height: 90vh; /* Збільшуємо висоту для широких екранів */
+   }
+}
+@media (min-width: 1800px) {
+   .footer {
+      min-height: 100vh; /* Збільшуємо висоту для широких екранів */
+   }
+}
+
+.container{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+/* Бігуча стрічка */
+.marquee-container {
+   width: 100%;
+   overflow: hidden;
+   white-space: nowrap;
+   position: relative;
+   background: #222; /* Фон під стрічкою */
+   padding: 10px 0;
+}
+
+.marquee {
+   display: flex;
+   width: max-content;
+   animation: marqueeScroll 20s linear infinite; /* Безперервна анімація */
+}
+
+.marquee span {
+   font-size: 24px;
+   font-weight: 300;
+   /* font-family: 'Anton', sans-serif; */
+   color: #FFD700; /* Золотий текст */
+   text-transform: uppercase;
+   padding-right: 50px; /* Відстань між повторюваними блоками */
+}
+
+@keyframes marqueeScroll {
+   from {
+      transform: translateX(0%);
+   }
+   to {
+      transform: translateX(-50%);
+   }
+}
+
+
+p, .story-text, .roadmap li {
+   font-size: clamp(14px, 2vw, 24px); /* Гнучкий розмір для основного тексту */
+   line-height: 1.6;
 }
