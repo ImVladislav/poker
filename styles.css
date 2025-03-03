@@ -1,12 +1,23 @@
+@font-face {
+   font-family: 'Looper';
+   src: url('./Looper.ttf') format('truetype'),
+        url('./Looper.woff') format('woff'),
+        url('./Looper.otf') format('opentype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+body {
+   font-family: 'Looper', sans-serif;
+}
 /* Загальні стилі */
 body, html {
    margin: 0;
    padding: 0;
-   font-family: 'Anton', sans-serif;
+   font-family: 'Looper', sans-serif;
    color: white;
    background: #111;
 }
-
 /* Hero section */
 .hero {
    width: 100%;
@@ -14,7 +25,8 @@ body, html {
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
-   display: flex;
+   /* display: flex; */
+   flex-direction: column;
    align-items: center;
    justify-content: center;
    text-align: center;
@@ -39,6 +51,7 @@ body, html {
 .hero h1 {
    font-size: 5rem;
    margin: 0;
+   font-weight: normal;
 }
 
 .slogan {
@@ -99,7 +112,9 @@ body, html {
    display: flex;
    justify-content: center;
    gap: 20px;
-   margin: 40px 0;
+   /* margin: 40px 0; */
+   padding: 40px 0;
+   position: relative;
 }
 
 .icons img {
