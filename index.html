@@ -12,8 +12,8 @@
    <link rel="preconnect" href="https://fonts.googleapis.com" />
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
-   
-  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+
+   <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
 </head>
 
 <body>
@@ -25,8 +25,8 @@
          </a>
          <a href="https://www.dextools.io/app/en/solana/pair-explorer/xxxxxxxxx
             " target="_blank">
-               <img src="ico1.png" alt="Icon 1" />
-            </a>
+            <img src="ico1.png" alt="Icon 1" />
+         </a>
 
          <a href="https://t.me/BroccoliFartSol" target="_blank">
             <img src="ico3.png" alt="Icon 4" />
@@ -48,7 +48,7 @@
 
       <div class="container">
          <img src="chelik.gif" alt="Chelik" class="chelik"> <!-- Персонаж тепер окремо -->
-         <div class="progress-bar"  id="progressText">
+         <div class="progress-bar" id="progressText">
             <div class="progress-text" id="progressText">
                XXXXXXXXX
             </div>
@@ -70,9 +70,13 @@
          <h2>Story</h2>
          <p class="story-text">
             <strong>A Deal with the Devil</strong><br><br>
-            Two reckless gamblers wandered into the Devil’s Casino, drawn by the thrill of the game. The Devil, amused, made them an offer - win a single hand of poker, and fortune would be theirs. Lose, and their souls belonged to him.<br><br>
-            Blinded by greed, they accepted… and lost. But instead of surrendering, they struck a new deal - master poker, defeat the Devil, and reclaim their freedom.<br><br>
-            Now, that same high-stakes gamble is coming to life. The team is crafting the ultimate poker experience, where you won’t just face the Devil - you’ll challenge the best players across the globe.<br><br>
+            Two reckless gamblers wandered into the Devil’s Casino, drawn by the thrill of the game. The Devil, amused,
+            made them an offer - win a single hand of poker, and fortune would be theirs. Lose, and their souls belonged
+            to him.<br><br>
+            Blinded by greed, they accepted… and lost. But instead of surrendering, they struck a new deal - master
+            poker, defeat the Devil, and reclaim their freedom.<br><br>
+            Now, that same high-stakes gamble is coming to life. The team is crafting the ultimate poker experience,
+            where you won’t just face the Devil - you’ll challenge the best players across the globe.<br><br>
             <strong>Are you ready to raise the stakes?</strong>
          </p>
       </div>
@@ -86,7 +90,7 @@
       </div>
    </div>
    <!-- Roadmap -->
-   <section style="background-image: url('road.png');" class="footer" >
+   <section style="background-image: url('road.png');" class="footer">
       <div class="container">
          <!-- <h2>Roadmap</h2> -->
          <!-- <ul>
@@ -108,38 +112,54 @@
    <section class="footer" style="background-image: url('Poker.jpg');">
 
    </section>
+   <audio id="bg-music" src="mus.mp3" loop></audio>
 
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js'></script>
-    
-      <!-- <script type="module">
-        import CodePenVueComponent from "./script.js";
-        new Vue(CodePenVueComponent).$mount('#app');
-      </script> -->
+   <!-- Кнопка керування музикою -->
+   <button id="music-toggle">
+      <img src="on.png" alt="Music Toggle" id="music-icon">
+   </button>
 
-
-
-
-
-
-
-   </div>
-   <!-- <canvas id="canvas"></canvas> -->
    <script>
-document.getElementById('progressText').addEventListener('click', function () {
-    const textToCopy = this.textContent;
-    navigator.clipboard.writeText(textToCopy)
-        .then(() => {
-            this.textContent = "Contract copied!"; // Зміна тексту
+      document.addEventListener("DOMContentLoaded", function () {
+         const audio = document.getElementById("bg-music");
+         const musicToggle = document.getElementById("music-toggle");
+         const musicIcon = document.getElementById("music-icon");
 
-            setTimeout(() => {
-                this.textContent = textToCopy; // Повернення початкового тексту через 3 сек
-            }, 3000);
-        })
-        .catch((err) => {
-            console.error('Failed to copy text: ', err);
-        });
-});
+         // Автоматично вмикаємо музику при завантаженні
+         audio.play().catch(error => console.log("Автовідтворення заблоковане, користувач повинен взаємодіяти з сайтом"));
+
+         // Перемикач для кнопки
+         musicToggle.addEventListener("click", function () {
+            if (audio.paused) {
+               audio.play();
+               musicIcon.src = "on.png";
+            } else {
+               audio.pause();
+               musicIcon.src = "off.png";
+            }
+         });
+      });
+   </script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js'></script>
+
+
+
+   <script>
+      document.getElementById('progressText').addEventListener('click', function () {
+         const textToCopy = this.textContent;
+         navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+               this.textContent = "Contract copied!"; // Зміна тексту
+
+               setTimeout(() => {
+                  this.textContent = textToCopy; // Повернення початкового тексту через 3 сек
+               }, 3000);
+            })
+            .catch((err) => {
+               console.error('Failed to copy text: ', err);
+            });
+      });
    </script>
    <script src="index.js"></script>
 </body>
