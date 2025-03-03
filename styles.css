@@ -17,6 +17,7 @@ body, html {
    font-family: 'Looper', sans-serif;
    color: white;
    background: #111;
+   overflow-x: hidden;
 }
 /* Hero section */
 .hero {
@@ -27,7 +28,7 @@ body, html {
    background-position: center;
    display: flex;
    flex-direction: column;
-   /* justify-content: center; */
+   justify-content: space-between;
    align-items: center;
    text-align: center;
    /* padding: 20px; */
@@ -111,30 +112,29 @@ body, html {
 .icons {
    display: flex;
    justify-content: space-evenly;
-   gap: 20px;
+   gap: 50px;
    /* margin: 40px 0; */
    padding: 40px 0;
    position: relative;
 }
 
 .icons img {
-   width: 50px;
-   height: 50px;
-   transition: transform 0.2s;
+   width: 100%;
+   max-width: 200px;
+   height: auto;
+   transition: transform 0.3s ease-in-out;
 }
 
 .icons img:hover {
-   transform: scale(1.2);
+   transform: scale(1.2) rotate(-5deg); /* Збільшуємо + нахиляємо */
+
 }
 
 /* Прогрес-бар */
 .progress-bar {
-   position: absolute;
-   bottom: 20px; /* Відстань від низу */
-   left: 50%;
-   transform: translateX(-50%); /* Центрування по горизонталі */
-   width: 80%;
-   max-width: 800px;
+   position: relative;
+   width: 90%; /* Гнучка ширина */
+
    background-color: #222;
    height: 50px;
    display: flex;
@@ -143,13 +143,62 @@ body, html {
    border-radius: 5px;
    cursor: pointer;
    transition: all 0.3s ease;
+   overflow: hidden;
+   margin-bottom: 20px; /* Відступ від низу */
 }
 
+/* Текст у progress-bar */
 .progress-text {
    color: white;
-   font-size: 14px;
+   font-size: clamp(12px, 2vw, 18px); /* Гнучкий розмір тексту */
    font-weight: 300;
    font-family: 'Looper', sans-serif;
+}
+
+/* Челик */
+.chelik {
+   position: absolute;
+   left: 20%; /* Лівіше від центру */
+   bottom: 50px; /* Вище за progress-bar */
+   height: 30vw; /* Гнучкий розмір */
+   max-height: 200px;
+   width: auto;
+   transform: translateX(-50%);
+   z-index: 10;
+}
+
+@media screen and (max-width: 768px) {
+   /* .container {
+      padding: 0 3%;
+   } */
+
+   .progress-bar {
+      width: 95%;
+      height: 40px;
+   }
+
+   .chelik {
+      height: 24vw;
+      max-height: 160px;
+      bottom: 50px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   /* .container {
+      padding: 0 5%;
+   } */
+
+   .progress-bar {
+      width: 90%;
+      height: 35px;
+   }
+
+   .chelik {
+      height: 20vw;
+      max-height: 120px;
+      bottom: 45px;
+   }
 }
 
 .progress-bar:hover {
@@ -165,7 +214,8 @@ body, html {
    .story h2, .roadmap h2 { font-size: 2.5rem; }
    .story p, .roadmap ul { font-size: 1.2rem; }
    .roadmap li { font-size: 1rem; }
-   .icons img { width: 40px; height: 40px; }
+   .icons img { width: 100%; height: auto; }
+   .icons {gap: 0px;}
    .progress-bar { height: 40px; }
 }
 
@@ -175,11 +225,11 @@ body, html {
    .story h2, .roadmap h2 { font-size: 2rem; }
    .story p, .roadmap ul { font-size: 1rem; }
    .roadmap li { font-size: 0.9rem; }
-   .icons img { width: 30px; height: 30px; }
+   .icons img { width: 100%; height: auto; gap: 0px; }
    .progress-bar { height: 35px; }
 }
 .footer {
-   width: 100%;
+
    min-height: 50vh;
    height: auto;
    background-size: cover; /* Заповнює весь блок */
@@ -188,7 +238,21 @@ body, html {
    display: flex;
    align-items: center;
    justify-content: center;
-   padding: 20px;
+   /* padding: 20px; */
+}
+
+.about {
+   width: 100%;
+   min-height: 50vh;
+   height: auto;
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('about.png'); 
+   background-size: cover; /* Заповнює весь блок */
+   background-position: center; /* Вирівнює картинку */
+   background-repeat: no-repeat;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   /* padding: 20px; */
 }
 
 /* Додатковий медіа-запит для широких екранів */
@@ -208,12 +272,18 @@ body, html {
    }
 }
 
-.container{
+.container {
+   position: relative;
+   width: 100%;
+   max-width: 1200px; /* Обмежуємо максимальну ширину */
+   /* padding: 0 5%; Додаємо відступи з боків */
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: flex-end;
    align-items: center;
+   /* margin: 0 auto; Центруємо контейнер */
 }
+
 
 /* Бігуча стрічка */
 .marquee-container {
@@ -253,4 +323,6 @@ body, html {
 p, .story-text, .roadmap li {
    font-size: clamp(14px, 2vw, 24px); /* Гнучкий розмір для основного тексту */
    line-height: 1.6;
+   padding: 4%;
+   
 }
