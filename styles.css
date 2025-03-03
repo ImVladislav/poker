@@ -180,7 +180,7 @@ body, html {
 }
 .footer {
    width: 100%;
-   min-height: 50vh; /* Мінімальна висота 50% екрану */
+   min-height: 100vh;
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
