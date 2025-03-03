@@ -148,7 +148,8 @@ body, html {
 .progress-text {
    color: white;
    font-size: 14px;
-   font-weight: bold;
+   font-weight: 300;
+   font-family: 'Looper', sans-serif;
 }
 
 .progress-bar:hover {
@@ -176,4 +177,15 @@ body, html {
    .roadmap li { font-size: 0.9rem; }
    .icons img { width: 30px; height: 30px; }
    .progress-bar { height: 35px; }
+}
+.footer {
+   width: 100%;
+   min-height: 50vh; /* Мінімальна висота 50% екрану */
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
 }
